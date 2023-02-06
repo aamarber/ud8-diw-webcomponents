@@ -7,10 +7,23 @@
             // https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow
             const shadow = this.attachShadow({ mode: 'open' });
 
+            const styles = this.buildStylesReference();
+
+            shadow.appendChild(styles);
+
             const navbarElement = this.createNavbar();
 
             // appending the container to the shadow DOM
             shadow.appendChild(navbarElement);
+        }
+
+        buildStylesReference(){
+            let bootstrapStyles = document.createElement('link');
+
+            bootstrapStyles.rel = 'stylesheet';
+            bootstrapStyles.href = './navbar/navbar.css';
+
+            return bootstrapStyles;
         }
 
         createNavbar(){
@@ -20,6 +33,7 @@
 
             navbarContainer.innerHTML = `
             <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="./navbar.css">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

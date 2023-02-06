@@ -1,0 +1,10 @@
+// @use './lightNavbarTheme' as theme;
+@use './clouredNavbarTheme' as theme;
+
+.navbar{
+    background-color: theme.$bg-color;
+
+    .navbar-brand{
+        color: theme.$font-color;
+    }
+}

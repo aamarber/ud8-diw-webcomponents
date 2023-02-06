@@ -9,9 +9,12 @@
 
             const bootstrapStyles = this.buildBootstrapStylesReference();
 
+            const styles = this.buildStylesReference();
+
             const navbarItem = this.buildNavBarItem();
 
             shadow.appendChild(bootstrapStyles);
+            shadow.appendChild(styles);
             shadow.appendChild(navbarItem);
         }
 
@@ -20,6 +23,15 @@
 
             bootstrapStyles.rel = 'stylesheet';
             bootstrapStyles.href = './node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+            return bootstrapStyles;
+        }
+
+        buildStylesReference(){
+            let bootstrapStyles = document.createElement('link');
+
+            bootstrapStyles.rel = 'stylesheet';
+            bootstrapStyles.href = './navbar/navbaritem.css';
 
             return bootstrapStyles;
         }
